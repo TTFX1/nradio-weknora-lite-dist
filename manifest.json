@@ -48,7 +48,7 @@
    "size": 134397342,
    "sha256": "360e83444007fd002b8b6d848271fded0a220b08973c153331da319a578f68d5",
    "port": 8080,
-   "image_tag": "weknora-lite:arm64",
+   "image_tag": "weknora-lite:v0.9.0",
    "notes": "容器镜像；DuckDB spatial/excel 扩展已本地预置（离线可用），安装后自动启动并返回访问地址",
    "run": {
     "container": "weknora-lite",
@@ -87,7 +87,8 @@
      "sha256": "360e83444007fd002b8b6d848271fded0a220b08973c153331da319a578f68d5"
     }
    ],
-   "source": "github-release"
+   "source": "github-release",
+   "image_tag_load": "weknora-lite:arm64"
   }
  ]
 }
