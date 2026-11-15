@@ -1,0 +1,93 @@
+{
+ "schema": 1,
+ "versions": [
+  {
+   "id": "0.4.0-nd",
+   "label": "0.4.0 轻量版",
+   "format": "docker",
+   "size": 99189956,
+   "sha256": "0c5e39ad0c78d0c4bfaca17ed70ad654bd1c6f4e2f6bdc7c170bacab02ad0490",
+   "port": 8080,
+   "image_tag": "weknora-lite:0.4.0-nd",
+   "notes": "容器镜像，安装后自动启动并返回访问地址",
+   "run": {
+    "container": "weknora-lite",
+    "memory": "512m",
+    "cpus": "1.5",
+    "network": "host",
+    "data_dir": "/mnt/storage/data/weknora-lite/0.4.0-nd",
+    "env": [
+     "EDITION=lite",
+     "DB_DRIVER=sqlite",
+     "DB_PATH=/app/data/weknora.db",
+     "RETRIEVE_DRIVER=sqlite",
+     "STORAGE_TYPE=local",
+     "LOCAL_STORAGE_BASE_DIR=/app/data/files",
+     "STREAM_MANAGER_TYPE=memory",
+     "GIN_MODE=release",
+     "LOG_LEVEL=info"
+    ],
+    "secret_env": [
+     "TENANT_AES_KEY",
+     "JWT_SECRET"
+    ]
+   },
+   "parts": [
+    {
+     "url": "https://github.com/TTFX1/nradio-weknora-lite-dist/releases/download/v0.4.0-nd/WeKnora-Lite_v0.4.0-noduckdb_arm64_lite.tar.gz",
+     "size": 99189956,
+     "sha256": "0c5e39ad0c78d0c4bfaca17ed70ad654bd1c6f4e2f6bdc7c170bacab02ad0490"
+    }
+   ],
+   "source": "github-release"
+  },
+  {
+   "id": "0.9.0",
+   "label": "0.9.0 全量版",
+   "format": "docker",
+   "size": 134397342,
+   "sha256": "360e83444007fd002b8b6d848271fded0a220b08973c153331da319a578f68d5",
+   "port": 8080,
+   "image_tag": "weknora-lite:arm64",
+   "notes": "容器镜像；DuckDB spatial/excel 扩展已本地预置（离线可用），安装后自动启动并返回访问地址",
+   "run": {
+    "container": "weknora-lite",
+    "memory": "512m",
+    "cpus": "1.5",
+    "network": "host",
+    "data_dir": "/mnt/storage/data/weknora-lite/0.9.0",
+    "env": [
+     "EDITION=lite",
+     "DB_DRIVER=sqlite",
+     "DB_PATH=/app/data/weknora.db",
+     "RETRIEVE_DRIVER=sqlite",
+     "STORAGE_TYPE=local",
+     "LOCAL_STORAGE_BASE_DIR=/app/data/files",
+     "STREAM_MANAGER_TYPE=memory",
+     "JIEBA_DICT_DIR=/app/jieba_dict",
+     "WEKNORA_WEB_DIR=/app/web",
+     "GIN_MODE=release",
+     "LOG_LEVEL=info"
+    ],
+    "secret_env": [
+     "SYSTEM_AES_KEY",
+     "JWT_SECRET"
+    ],
+    "extra_args": [
+     "--add-host",
+     "extensions.duckdb.org:127.0.0.1",
+     "-v",
+     "/mnt/storage/data/weknora-mgr/duckdb:/root/.duckdb"
+    ]
+   },
+   "parts": [
+    {
+     "url": "https://github.com/TTFX1/nradio-weknora-lite-dist/releases/download/v0.9.0/WeKnora-Lite_v0.9.0_arm64_lite.tar.gz",
+     "size": 134397342,
+     "sha256": "360e83444007fd002b8b6d848271fded0a220b08973c153331da319a578f68d5"
+    }
+   ],
+   "source": "github-release"
+  }
+ ]
+}
