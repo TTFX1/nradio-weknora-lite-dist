@@ -90,5 +90,25 @@
    "source": "github-release",
    "image_tag_load": "weknora-lite:arm64"
   }
- ]
+ ],
+ "gateway": {
+  "id": "nginx-gw-1",
+  "label": "手机访问加速网关",
+  "format": "docker",
+  "size": 25073593,
+  "sha256": "5757072542534f927de73b5faf63e60e6f4a91f2d85700249cfcf83356de3c8d",
+  "port": 8090,
+  "upstream_port": 8080,
+  "image_tag": "nginx:alpine-arm64",
+  "container": "weknora-gw",
+  "notes": "可选组件：为知识库前置 nginx 反向代理，开启 gzip 并允许管理页 iframe 嵌入",
+  "parts": [
+   {
+    "url": "https://github.com/TTFX1/nradio-weknora-lite-dist/releases/download/gw-1/nginx-alpine-arm64.tar.gz",
+    "size": 25073593,
+    "sha256": "5757072542534f927de73b5faf63e60e6f4a91f2d85700249cfcf83356de3c8d"
+   }
+  ],
+  "source": "github-release"
+ }
 }
